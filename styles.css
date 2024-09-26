@@ -1,0 +1,122 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Grid layout for the entire page */
+body {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-rows: auto 50px 1fr auto;
+    grid-gap: 10px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "section sidebar"
+        "section new-section1"
+        "section new-section2";
+}
+
+section {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+aside {
+    background-color: #ddd;
+    padding: 20px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "section"
+            "sidebar"
+            "new-section1"
+            "new-section2";
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        grid-template-areas:
+            "header"
+            "main"
+            "nav"
+            "footer";
+    }
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "section"
+            "sidebar"
+            "new-section1"
+            "new-section2";
+    }
+}
